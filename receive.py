@@ -13,7 +13,7 @@ def parse_xml(web_data):
     elif msg_type == 'image':
         return ImageMsg(xmlData)
 	# 增加了event 的判定
-	elif msg_type == 'event':
+    elif msg_type == 'event':
 		return EventMsg(xmlData)
 
 class Msg(object):
@@ -22,23 +22,23 @@ class Msg(object):
         self.FromUserName = xmlData.find('FromUserName').text
         self.CreateTime = xmlData.find('CreateTime').text
         self.MsgType = xmlData.find('MsgType').text
-		try:
-			self.MsgId = xmlData.find('MsgId').text
 		
 class TextMsg(Msg):
     def __init__(self, xmlData):
         Msg.__init__(self, xmlData)
         self.Content = xmlData.find('Content').text.encode("utf-8")
+        self.MsgId = xmlData.find('MsgId').text
 
 		
 class ImageMsg(Msg):
     def __init__(self, xmlData):
         Msg.__init__(self, xmlData)
         self.PicUrl = xmlData.find('PicUrl').text
+        self.MsgId = xmlData.find('MsgId').text
         self.MediaId = xmlData.find('MediaId').text
 		
 # 增加了event类
-class EventMsg(Msg)；
-	    def __init__(self, xmlData):
+class EventMsg(Msg):
+    def __init__(self, xmlData):
         Msg.__init__(self, xmlData)
         self.Event = xmlData.find('Event').text
