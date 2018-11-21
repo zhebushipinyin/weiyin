@@ -36,28 +36,39 @@ if __name__ == '__main__':
 		"button":
 		[
 			{
-				"type": "click",
-				"name": "开发指引",
-				"key":  "mpGuide"
-			},
-			{
-				"name": "公众平台",
+				"name": "优品汇",
 				"sub_button":
 				[
 					{
 						"type": "view",
-						"name": "更新公告",
+						"name": "商城首页",
+						"url": "https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432"
+					},
+					{
+						"type": "click",
+						"name": "我的订单",
+						"key": "myList"
+					}
+				]
+			},
+			{
+				"name": "用户中心",
+				"sub_button":
+				[
+					{
+						"type": "view",
+						"name": "我的账户",
 						"url": "http://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1418702138&token=&lang=zh_CN"
 					},
 					{
 						"type": "view",
-						"name": "接口权限说明",
+						"name": "我的积分",
 						"url": "http://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1418702138&token=&lang=zh_CN"
 					},
 					{
 						"type": "view",
-						"name": "返回码说明",
-						"url": "http://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1433747234&token=&lang=zh_CN"
+						"name": "我的代码",
+						"url": "https://github.com/zhebushipinyin/weiyin"
 					}
 				]
 			},
