@@ -17,7 +17,7 @@ def parse_xml(web_data):
 		event_type = xmlData.find('Event').text
 		# 点击
 		if event_type == 'CLICK':
-			return CLICK(xmlData)
+			return Click(xmlData)
 		# 关注
 		elif event_type == 'subscribe':
 			return Subscribe(xmlData)
