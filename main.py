@@ -35,7 +35,7 @@ class WeixinInterface:
 		if hashcode == signature:
 			return echostr
     
-    def POST(self):
+	def POST(self):
 		webData = web.data()
 		print "Handle Post webdata is ", webData
 		#后台打日志
@@ -60,7 +60,7 @@ class WeixinInterface:
 			fromUser = recMsg.ToUserName
 			# 被关注时回复消息
 			if recMsg.Event == 'subscribe':
-				subscribe_text = '欢迎关注=v='
+				subscribe_text = '感谢您使用简米支付！我们会记录您的每笔收支，为您累计积分，积分可在官方商城兑换好礼！'
 				content = subscribe_text
 				replyMsg = reply.TextMsg(toUser, fromUser, content)
 				return replyMsg.send()
