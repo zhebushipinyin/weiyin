@@ -6,6 +6,8 @@ import time
 import os
 import reply
 import receive
+from temp_msg import TmpMsg_buy
+from basic import Basic
 
 class WeixinInterface:
 
@@ -67,9 +69,13 @@ class WeixinInterface:
 			elif recMsg.Event == 'CLICK':
 				# 点击“我的订单”
 				if recMsg.Eventkey == 'myList':
-					content = u"编写中，尚未完成".encode('utf-8')
-					replyMsg = reply.TextMsg(toUser, fromUser, content)
-					return replyMsg.send()
+					# 获取accessToken
+					accessToken = Basic().get_access_token()
+					replyTemMsg = TmpMsg_buy(toUser)
+					return replyTemMsg.send(replyTemMsg.postData, accessToken)
+					#content = u"编写中，尚未完成".encode('utf-8')
+					#replyMsg = reply.TextMsg(toUser, fromUser, content)
+					#return replyMsg.send()
 		else:
 			print "暂且不处理"
 			return "success"
